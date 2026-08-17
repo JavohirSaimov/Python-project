@@ -4,17 +4,19 @@ import logging
 import base64
 import json
 import aiohttp
+from dotenv import load_dotenv
+
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
-
 # --- KONFIGURATSIYA ---
-# Yangi API token o'rnatildi
-API_TOKEN = ''
-# Gemini API kalitingiz
-GEMINI_API_KEY = ""
+
+load_dotenv()
+
+API_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Logging sozlamalari
 logging.basicConfig(level=logging.INFO)
